@@ -1,0 +1,2 @@
+class CulinaryArtist < ApplicationRecord
+end
