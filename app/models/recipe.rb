@@ -1,4 +1,7 @@
 class Recipe < ApplicationRecord
+  has_many :recipe_categories
+  has_many :categories, through: :recipe_categories
+  
   belongs_to :culinary_artist
 
   has_many :ingredients
