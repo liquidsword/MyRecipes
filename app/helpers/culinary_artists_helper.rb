@@ -1,0 +1,2 @@
+module CulinaryArtistsHelper
+end
