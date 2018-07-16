@@ -1,4 +1,5 @@
 class CulinaryArtistsController < ApplicationController
+  before_action :require_login
   before_action :set_culinary_artist, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -10,7 +11,7 @@ class CulinaryArtistsController < ApplicationController
     respond_to do |format|
       if @culinary_artist.save
         session[:culinary_artist_id] = @culinary_artist.id
-        format.html { redirect_to culinary_artist_path(@culinary_artist), notice: "Welcome to My Recipes, your very own culinary journey!"}
+        format.html { redirect_to culinary_artist_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"}
       else
         format.html { render :new }
       end
@@ -31,6 +32,11 @@ class CulinaryArtistsController < ApplicationController
 end
 
 private
+
+  def require_login
+    return head(:forbidden) unless session.include? :culinary_artist_id
+
+  end
 
   def set_culinary_artist
     @culinary_artist = CulinaryArtist.find(params[:id])
