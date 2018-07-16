@@ -1,0 +1,10 @@
+<%= form_for @culinary_artist, url: "/culinary_artists/login" do |f| %>
+
+  <div class="field"><%= f.label :culinary_artist_name, "Select your name" %><br>
+    <%= f.collection_select(:id, @culinary_artists, :id, :culinary_artist_name) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign In"  %>
+  </div>
+<% end %>
