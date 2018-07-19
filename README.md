@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# MyRecipes
+1. First clone MyARecipes from Github
+2. Change directory to MyRecipes
+3. Run bundle install.
+4. Run rake db:migrate
+5. Run shotgun.
+6. Restarting the database requires you to delete development.sqlite and schema.
 
-Things you may want to cover:
+Overview:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This site allows a culinary artist to keep track of recipes that they have tried to create. They can list the
+ingredients of the recipe and post a pic of the finished product.
