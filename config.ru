@@ -9,4 +9,3 @@ use Rack::MethodOverride
 use CulinaryArtistsController
 use RecipesController
 use SesionsController
-use PostsController

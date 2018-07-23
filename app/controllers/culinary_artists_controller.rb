@@ -35,7 +35,6 @@ private
 
   def require_login
     return head(:forbidden) unless session.include? :culinary_artist_id
-
   end
 
   def set_culinary_artist

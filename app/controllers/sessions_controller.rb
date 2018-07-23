@@ -10,6 +10,5 @@ class SessionsController < ApplicationController
       session[:culinary_artist_id]= @culinary_artist.id
     else
       redirect_to signin_path
-
   end
 end
