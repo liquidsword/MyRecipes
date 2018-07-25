@@ -1,4 +1,11 @@
 class SessionsController < ApplicationController
+  
+  def destroy
+    session[:culinary_artist_id] = nil
+    redirect_to root_url
+
+  end
+
   def new
     @culinary_artist = CulinaryArtist.new
     @culinary_artists = CulinaryArtist.all
@@ -10,5 +17,6 @@ class SessionsController < ApplicationController
       session[:culinary_artist_id]= @culinary_artist.id
     else
       redirect_to signin_path
+    end
   end
 end
