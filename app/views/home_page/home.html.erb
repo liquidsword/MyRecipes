@@ -1,15 +1,15 @@
 <div class="theme-showcase" role="main">
 
-  <div class="left-pic">
+  <div class="center">
 
-    <img src="https://unsplash.com/photos/uQs1802D0CQ" width="550" height="325">
+    <%= image_tag "katie-smith-104748-unsplash.jpg", size: "500x500" %>
   </div>
 
   <div class="right-info">
     <h1>Welcome to your online journal of recipes!</h1>
     <div class="center">
       <%= link_to "Sign In", signin_path, class: "btn btn-primary" %>
-      <%= link_to "Sign Up", new_culinary_artist_path, class: "btn btn-primary" %>
+      <%= link_to "Join", new_culinary_artist_path, class: "btn btn-primary" %>
     </div>
   </div>
 
