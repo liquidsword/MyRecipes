@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :require_logged_in, except: [:new, :create, :home]
 
   def logged_in?
-    !!current_user
+    !!current_user.nil
   end
 
   private

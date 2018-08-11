@@ -3,6 +3,7 @@ class CulinaryArtistsController < ApplicationController
   before_action :set_culinary_artist, only: [:show, :edit, :update, :destroy]
 
   def new
+    logged_in?
     @culinary_artist = CulinaryArtist.new
   end
 
@@ -19,6 +20,7 @@ class CulinaryArtistsController < ApplicationController
   end
 
   def edit
+    redirect_to @root_path unless @culinary_artist_id == current_user.id
   end
 
   def update

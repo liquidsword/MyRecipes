@@ -8,7 +8,6 @@ class SessionsController < ApplicationController
 
   def new
     @culinary_artist = CulinaryArtist.new
-    @culinary_artists = CulinaryArtist.all
   end
 
   def create
@@ -17,6 +16,7 @@ class SessionsController < ApplicationController
       session[:culinary_artist_id]= @culinary_artist.id
       redirect_to culinary_artist_path(@culinary_artist)
     else
+      flash.now[:danger] = 'Invalid email/password combination'
       redirect_to signin_path
     end
   end
