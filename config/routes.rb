@@ -4,8 +4,8 @@ root "home_page#home"
 get "/signin", to: "sessions#new"
 post "/signin", to: "sessions#create"
 post "/logout", to: "sessions#destroy"
-get "/join", to: "culinary_artists#new"
-delete "/signout", to: "sessions#destroy"
+#get "/join", to: "culinary_artists#new"
+post "/signout", to: "sessions#destroy"
 
 resources :recipes
 resources :culinary_artists
