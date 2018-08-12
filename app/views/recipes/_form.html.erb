@@ -7,7 +7,15 @@
       qty: <%= ingredient.text_field :quantity %>
     </li>
     <% end %>
+
+    <div class="field">
+      <%= f.label :instructions %>
+      <%= f.text_area :instructions %>
+    </div>
     <%= link_to 'add_ingredient', @recipe %>
   </ul>
+
+  <div class="actions">
   <%= f.submit %>
+ </div>
 <% end %>

@@ -1,4 +1,4 @@
-<%= form_for @culinary_artist, url: "/culinary_artists/login" do |f| %>
+<%= form_for @culinary_artist, do |f| #url: "/culinary_artists/login" %>
 
   <div class="field"><%= f.label :culinary_artist_name %><br>
     <%= f.collection_select(:id, @culinary_artists, :id, :culinary_artist_name) %>

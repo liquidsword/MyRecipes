@@ -12,12 +12,17 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    3.times {@recipe.ingredients.build}
+    5.times {@recipe.ingredients.build}
   end
 
   def create
-    @recipe = Recipe.create(recipe_params)
-    redirect_to @recipe
+    @culinary_artist = current_user
+    @recipe = @culinary_artist.recipes.build(recipe_params)
+    if @recipe.save
+      redirect_to recipe_path(@recipe)
+    else
+      render 'new'
+    end
   end
 
   def update
@@ -28,7 +33,7 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-        params.require(:recipe).permit(:title, ingredients_attributes: [:id, :name, :quantity])
+        params.require(:recipe).permit(:title, ingredients_attributes: [:id, :name, :quantity],:instructions)
 
     end
 end
