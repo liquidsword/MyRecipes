@@ -3,9 +3,8 @@ Rails.application.routes.draw do
 root "home_page#home"
 get "/signin", to: "sessions#new"
 post "/signin", to: "sessions#create"
+get '/auth/facebook/callback' => 'sessions#omnicreate'
 post "/logout", to: "sessions#destroy"
-#get "/join", to: "culinary_artists#new"
-post "/signout", to: "sessions#destroy"
 
 resources :recipes
 resources :culinary_artists

@@ -1,23 +1,43 @@
 class SessionsController < ApplicationController
 
-  def destroy
-    session[:culinary_artist_id] = nil
-    redirect_to root_url
-
-  end
-
   def new
+    redirect_if_logged_in
     @culinary_artist = CulinaryArtist.new
   end
 
   def create
-    @culinary_artist = CulinaryArtist.find_by(culinary_artist_name: params[:culinary_artist][:culinary_artist_name])
+    @culinary_artist = CulinaryArtist.find_by(culinary_artist_name: session_params[:culinary_artist_name])
+    session[:culinary_artist_id] = @culinary_artist.id
     if @culinary_artist && @culinary_artist.authenticate(params[:culinary_artist][:password])
       session[:culinary_artist_id]= @culinary_artist.id
       redirect_to culinary_artist_path(@culinary_artist)
     else
-      flash.now[:danger] = 'Invalid email/password combination'
-      redirect_to signin_path
+      @culinary_artist = CulinaryArtist.new(culinary_artist_name: session_params[:culinary_artist_name])
+      flash[:error] = "Something went wrong, please try again"
+
+    render :new
     end
+  end
+
+  def destroy
+    session.clear
+    redirect_to root_path
+  end
+
+  def omnicreate
+    culinary_artist = CulinaryArtist.find_or_create_by_omniauth(auth)
+    session[:culinary_artist_id] = culinary_artist.id
+    redirect_to root_path
+  end
+
+  private
+
+  def auth
+    request.env['omniauth.auth']
+  end
+
+  def session_params
+    params.require(:culinary_artist).permit(:password, :culinary_artist_name, :uid)
+
   end
 end

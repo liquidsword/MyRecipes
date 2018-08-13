@@ -20,7 +20,7 @@ class CulinaryArtistsController < ApplicationController
   end
 
   def edit
-    redirect_to @root_path unless @culinary_artist_id == current_user.id
+    redirect_to root_path unless @culinary_artist_id == current_user.id
   end
 
   def update
