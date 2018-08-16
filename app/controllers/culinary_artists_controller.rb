@@ -7,6 +7,12 @@ class CulinaryArtistsController < ApplicationController
     @culinary_artist = CulinaryArtist.new
   end
 
+  def index
+    @index = CulinaryArtist.all
+
+    redirect_to '/culinary_artists/new'
+  end
+
   def create
     @culinary_artist = CulinaryArtist.new(culinary_artist_params)
     respond_to do |format|
