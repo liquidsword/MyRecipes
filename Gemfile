@@ -10,6 +10,10 @@ gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 
+gem 'jquery-rails'
+
+gem 'bootstrap-sass'
+
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'dotenv-rails'

@@ -5,11 +5,6 @@ class CulinaryArtistsController < ApplicationController
   def new
     logged_in?
     @culinary_artist = CulinaryArtist.new
-  end
-
-  def index
-    @index = CulinaryArtist.all
-
     redirect_to '/culinary_artists/new'
   end
 
@@ -17,7 +12,7 @@ class CulinaryArtistsController < ApplicationController
     @culinary_artist = CulinaryArtist.new(culinary_artist_params)
     respond_to do |format|
       if @culinary_artist.save
-        session[:culinary_artist_id] = @culinary_artist.id
+        session[:culinary_artist_id] = @culinary_artist_id
         format.html { redirect_to culinary_artist_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"}
       else
         format.html { render :new }
@@ -50,6 +45,6 @@ private
   end
 
   def culinary_artist_params
-    params.require(:culinary_artist).permit(:culinary_artist_name, :password)
+    params.require(:culinary_artist).permit(:culinary_artist_name, :password, :password_confirmation)
   end
 end

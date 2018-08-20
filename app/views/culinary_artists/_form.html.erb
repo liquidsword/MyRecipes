@@ -1,6 +1,6 @@
 <h1> New Culinary Artist </h1>
 
-<%= form_for culinary_artist do |f| %>
+<%= form_for @culinary_artist, url: '/culinary_artists' do |f| %>
 
   <div class="form-group">
     <%= f.label :name, "Please create a username" %><br>
@@ -10,6 +10,11 @@
   <div class="form-group">
     <%= f.label :password, "Please create a password" %><br>
     <%= f.password_field :password, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password_confirmation, "Confirm your password" %><br>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
 
   <div class="actions">
