@@ -6,7 +6,7 @@ post "/signin", to: "sessions#create"
 get '/auth/facebook/callback' => 'sessions#omnicreate'
 post "/logout", to: "sessions#destroy"
 
-resources :culinary_artists, :only => [:new, :create]
+resources :culinary_artists
 
 resources :recipes do
   resources :ingredients

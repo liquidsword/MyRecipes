@@ -1,38 +1,17 @@
 class CulinaryArtistsController < ApplicationController
-  before_action :require_login
+  #before_action :require_login
   #before_action :set_culinary_artist, only: [:show, :edit, :update, :destroy]
 
   def new
     logged_in?
     @culinary_artist = CulinaryArtist.new
-    redirect_to '/culinary_artists/new'
+    #redirect_to '/culinary_artists/new'
   end
 
   def create
     @culinary_artist = CulinaryArtist.new(culinary_artist_params)
-    respond_to do |format|
-      if @culinary_artist.save
-        session[:culinary_artist_id] = @culinary_artist_id
-        format.html { redirect_to culinary_artist_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"}
-      else
-        format.html { render :new }
-      end
-    end
   end
 
-  def edit
-    redirect_to root_path unless @culinary_artist_id == current_user.id
-  end
-
-  def update
-    respond_to do |format|
-      if @culinary_artist.update(culinary_artist_params)
-        format.html { redirect_to @culinary_artist, notice: 'Culinary Artist updated.'}
-      else
-        format.html { render :edit }
-      end
-  end
-end
 
 private
 
