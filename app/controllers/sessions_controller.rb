@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
     session[:culinary_artist_id] = @culinary_artist_id
     if @culinary_artist && @culinary_artist.authenticate(params[:culinary_artist][:password])
       session[:culinary_artist_id]= @culinary_artist_id
-      redirect_to culinary_artist_path(@culinary_artist)
+      redirect_to culinary_artist_path(@culinary_artist) #after logging in successfully it is redirected to the culinary_artists#show
     else
       @culinary_artist = CulinaryArtist.new(culinary_artist_name: session_params[:culinary_artist_name])
       flash[:error] = "Something went wrong, please try again"

@@ -1,6 +1,6 @@
 class Recipe < ApplicationRecord
   validates :title, presence: true
-  validates :uniqueness
+  validates :uniqueness, presence: true
   validates :culinary_artist, presence: true
 
   belongs_to :culinary_artist
@@ -10,4 +10,5 @@ class Recipe < ApplicationRecord
 
   def erase_empty_ingredients
     self.ingredients = self.ingredients.select {|i| i.name && i.name != '' || i.quantity && i.quantity !=''}
+  end
 end

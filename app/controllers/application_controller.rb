@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  before_action :require_login, except: [:new, :create, :home]
+  #before_action :require_login, except: [:new, :create, :home]
 
   def current_user
     @current_user ||= CulinaryArtist.find_by(id: session[:culinary_artist_id])
