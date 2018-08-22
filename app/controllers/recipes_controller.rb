@@ -1,14 +1,15 @@
 class RecipesController < ApplicationController
 
-  def show
-    @recipe = Recipe.find(params[:id])
-    if @recipe.ingredients.last.try(:name)
-       @recipe.ingredients.build
+  def index
+    if params[:culinary_artist_id]
+      @recipes = CulinaryArtist.find(params[:culinary_artist_id]).recipes
+    else
+      @recipes = Recipe.all
     end
   end
 
-  def index
-    @recipes = Recipe.all
+  def show
+    @recipe = Recipe.find(params[:id])
   end
 
   def new

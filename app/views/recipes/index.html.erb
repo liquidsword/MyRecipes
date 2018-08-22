@@ -1,1 +1,5 @@
-<%= render @recipes %>
+<h2><%= recipe.title %></h2>
+
+<h3><%= link_to recipe.culinary_artist.name, culinary_artist_recipes_path(recipe.culinary_artist) %></h3>
+
+<p><%= recipe.description %></p>

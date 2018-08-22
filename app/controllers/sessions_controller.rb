@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
 
   end
 
+
   def create
     @culinary_artist = CulinaryArtist.find_by(culinary_artist_name: session_params[:culinary_artist_name])
     session[:culinary_artist_id] = @culinary_artist_id
