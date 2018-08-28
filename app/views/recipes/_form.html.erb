@@ -1,4 +1,4 @@
-<%= form_for @recipe.each do |f| %>
+<%= form_for @recipe do |f| %>
   <p>Title: <%= f.text_field :title %></p>
   <ul>
     <%= f.fields_for :ingredients do |ingredient| %>

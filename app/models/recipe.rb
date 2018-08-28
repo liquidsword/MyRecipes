@@ -1,6 +1,5 @@
 class Recipe < ApplicationRecord
   validates :title, presence: true
-  validates :uniqueness, presence: true
   validates :culinary_artist, presence: true
 
   belongs_to :culinary_artist

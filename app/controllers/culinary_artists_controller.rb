@@ -5,7 +5,6 @@ class CulinaryArtistsController < ApplicationController
   def new
     logged_in?
     @culinary_artist = CulinaryArtist.new
-    redirect_to '/culinary_artists/:culinary_artist_id/recipes/:id' #check this route
   end
 
   def show
