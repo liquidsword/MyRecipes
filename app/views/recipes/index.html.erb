@@ -1,9 +1,13 @@
+<h2>Here is your recipe page! Keep on cooking and creating! </h2>
+
+<%= link_to "New Recipe", new_recipe_path, class: "btn btn-primary" %>
+
 <% @recipes.each do |recipe|  %>
 
 <h2><%= recipe.title %></h2>
 
-<h3><%= link_to recipe.culinary_artist.name, culinary_artist_recipes_path(recipe.culinary_artist) %></h3>
+<h3><%= link_to culinary_artist_recipes_path(recipe.culinary_artist) %></h3>
 
-<p><%= recipe.description %></p>
+<p><%= recipe.instructions %></p>
 
 <% end %>

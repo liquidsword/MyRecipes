@@ -12,10 +12,10 @@
       <%= f.label :instructions %>
       <%= f.text_area :instructions %>
     </div>
-    <%= link_to 'add_ingredient', @recipe %>
+    <%= link_to 'add_ingredient', @recipe #doesn't go anywhere%>
   </ul>
 
   <div class="actions">
-  <%= f.submit %>
+  <%= f.submit "Create Recipe", class: "btn btn-primary" %>
  </div>
 <% end %>

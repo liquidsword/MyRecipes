@@ -17,7 +17,7 @@ class CulinaryArtistsController < ApplicationController
     respond_to do |format|
       if @culinary_artist.save
         session[:culinary_artist_id] = @culinary_artist_id
-        format.html { redirect_to culinary_artist_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"}
+        format.html { redirect_to culinary_artist_recipes_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"}
       else
         format.html { render :new }
       end
