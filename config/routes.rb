@@ -4,7 +4,7 @@ root "home_page#home"
 get "/signin", to: "sessions#new"
 post "/signin", to: "sessions#create"
 get '/auth/facebook/callback' => 'sessions#omnicreate'
-post "/logout", to: "sessions#destroy"
+get "/logout", to: "sessions#destroy"
 
 resources :culinary_artists do
   resources :recipes, only: [:index, :show]
