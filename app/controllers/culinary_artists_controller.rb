@@ -3,7 +3,6 @@ class CulinaryArtistsController < ApplicationController
   #before_action :set_culinary_artist, only: [:show, :edit, :update, :destroy]
 
   def new
-    logged_in?
     @culinary_artist = CulinaryArtist.new
   end
 

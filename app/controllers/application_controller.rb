@@ -9,7 +9,7 @@ helpers do
   end
 
   def logged_in?
-    !!current_user
+    current_user ? true : false
   end
 
   def redirect_if_logged_in
