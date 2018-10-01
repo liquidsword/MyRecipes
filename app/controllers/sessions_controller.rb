@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :require_login
 
   def new
     @redirect_if_logged_in
