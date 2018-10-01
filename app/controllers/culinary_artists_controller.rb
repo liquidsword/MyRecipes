@@ -6,6 +6,10 @@ class CulinaryArtistsController < ApplicationController
     @culinary_artist = CulinaryArtist.new
   end
 
+  def index
+    @culinary_artists = CulinaryArtist.all
+  end
+
   def show
     @culinary_artist = CulinaryArtist.find(params[:id]) #added show method because of login from sessions controller
 
@@ -13,15 +17,12 @@ class CulinaryArtistsController < ApplicationController
 
   def create
     @culinary_artist = CulinaryArtist.new(culinary_artist_params)
-    respond_to do |format|
       if @culinary_artist.save
-        session[:culinary_artist_id] = @culinary_artist_id
-        format.html { redirect_to culinary_artist_recipes_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"}
+        redirect_to culinary_artist_recipe_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"
       else
-        format.html { render :new }
+        render :new
       end
     end
-  end
 
 
 private

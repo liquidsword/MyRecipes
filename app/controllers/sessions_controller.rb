@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
-    #redirect_if_logged_in
+    @redirect_if_logged_in
     @culinary_artist = CulinaryArtist.new
   end
 

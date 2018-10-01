@@ -1,11 +1,16 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  #before_action :require_login, except: [:new, :create, :home]
+  before_action :require_login, except: [:new, :create, :home]
 
 helpers do
   def current_user
     @current_user ||= CulinaryArtist.find_by(id: session[:culinary_artist_id])
+  end
+
+  def require_login
+    redirect_to signin_path, :notice => "Please sign in" unless logged_in?
+
   end
 
   def logged_in?
@@ -17,7 +22,7 @@ helpers do
   end
 
   def redirect_if_not_logged_in
-    redirect_to login_path unless logged_in?
+    redirect_to signin_path unless logged_in?
   end
 
 end

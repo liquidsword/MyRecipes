@@ -8,6 +8,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :email, "Enter your email" %><br>
+    <%= f.text_field :email, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :password, "Please create a password" %><br>
     <%= f.password_field :password, class: "form-control" %>
   </div>
@@ -18,6 +23,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Join", class: "btn btn-primary" %>
+    <%= f.submit "Register", class: "btn btn-primary" %>
   </div>
  <% end %>
