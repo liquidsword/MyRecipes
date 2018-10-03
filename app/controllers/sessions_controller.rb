@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :require_login
 
   def new
     @redirect_if_logged_in
@@ -10,7 +9,6 @@ class SessionsController < ApplicationController
     @culinary_artists = CulinaryArtist.all
 
   end
-
 
   def create
     @culinary_artist = CulinaryArtist.find_by(culinary_artist_name: session_params[:culinary_artist_name])

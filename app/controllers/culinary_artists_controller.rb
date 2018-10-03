@@ -14,9 +14,10 @@ class CulinaryArtistsController < ApplicationController
   end
 
   def create
-    @culinary_artist = CulinaryArtist.new(params[:culinary_artist])
+    @culinary_artist = CulinaryArtist.new(culinary_artist_params)
       if @culinary_artist.save
-        redirect_to culinary_artist_recipe_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"
+        session[:culinary_artist_id] = @culinary_artist_id
+        redirect_to culinary_artist_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"
       else
         render :new
       end
