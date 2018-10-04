@@ -3,7 +3,9 @@ class Recipe < ApplicationRecord
   validates :culinary_artist, presence: true
 
   belongs_to :culinary_artist
-  has_many :ingredients
+  has_many :recipe_ingredients
+  has_many :ingredients, through: :recipe_ingredients
+
 
   accepts_nested_attributes_for :ingredients
 
