@@ -14,17 +14,18 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    5.times { @recipe.recipe_ingredients.build } #this seems to work
+    3.times { @recipe.recipe_ingredients.build } #this seems to work
   end
 
   def create
     @culinary_artist = current_user
-    @recipe = @culinary_artist.recipe.build(recipe_params)
     @recipe = Recipe.create(recipe_params)
+    #@recipe = @culinary_artist.recipes.build(recipe_params)
+
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
-      5.times { @recipe.recipe_ingredients.build.build_ingredient } #added 10-2-18
+      3.times { @recipe.recipe_ingredients.build } #added 10-2-18
       render 'new'
     end
   end

@@ -3,8 +3,10 @@ class ApplicationController < ActionController::Base
 
   #before_action :require_login, except: [:new, :create, :home]
 
-helpers do
+private
+
   def current_user
+    #CulinaryArtist.first
     @current_user ||= CulinaryArtist.find_by(id: session[:culinary_artist_id])
   end
 
@@ -24,7 +26,5 @@ helpers do
   def redirect_if_not_logged_in
     redirect_to signin_path unless logged_in?
   end
-
-end
 
 end

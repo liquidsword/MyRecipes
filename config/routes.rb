@@ -12,4 +12,8 @@ end
 
 resources :recipes
 
+resources :recipe_ingredients
+
+resources :ingredients
+
 end
