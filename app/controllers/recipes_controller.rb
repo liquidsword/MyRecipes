@@ -14,13 +14,13 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
-    3.times { @recipe.recipe_ingredients.build } #this seems to work
+    3.times { @recipe.recipe_ingredients.build} #this seems to work
   end
 
   def create
     @culinary_artist = current_user
-    @recipe = Recipe.create(recipe_params)
-    #@recipe = @culinary_artist.recipes.build(recipe_params)
+    #@recipe = Recipe.create(recipe_params)
+    @recipe = @culinary_artist.recipes.build(recipe_params)
 
     if @recipe.save
       redirect_to recipe_path(@recipe)

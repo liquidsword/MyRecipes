@@ -6,7 +6,6 @@ class ApplicationController < ActionController::Base
 private
 
   def current_user
-    #CulinaryArtist.first
     @current_user ||= CulinaryArtist.find_by(id: session[:culinary_artist_id])
   end
 

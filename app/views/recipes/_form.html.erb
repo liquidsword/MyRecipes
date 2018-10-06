@@ -7,15 +7,17 @@
       qty: <%= recipe_ingredient.text_field :quantity %>
     </li>
     <% end %>
-
+<br>
     <div class="field">
       <%= f.label :instructions %>
       <%= f.text_area :instructions %>
     </div>
-    <%= link_to 'add_ingredient', @recipe %> #goes back to recipes page
+    <%= link_to 'add_ingredient', new_ingredient_path %>
   </ul>
 
   <div class="actions">
-  <%= f.submit "Create Recipe", class: "btn btn-primary" %>
+  <%= f.submit "Create Recipe", class: "btn btn-primary" %> |
+  <h3><%= link_to "Index", recipes_path(@recipe.culinary_artist), class: "btn btn-primary" %></h3>
+
  </div>
 <% end %>
