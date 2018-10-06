@@ -1,14 +1,3 @@
-<%= form_for @recipe_ingredient do |f| %>
-  <ul>
-    <%= f.fields_for :recipe_ingredients do |recipe_ingredient| %>
-    <li>
-      name: <%= recipe_ingredient.text_field :name %>
-      qty: <%= recipe_ingredient.text_field :quantity %>
-    </li>
-    <% end %>
-  </ul>
+<h2>New Ingredient </h2>
 
-  <div class="actions">
-  <%= f.submit "add ingredient", new_ingredient class: "btn btn-primary" %>
- </div>
-<% end %>
+<%= render 'form' %>

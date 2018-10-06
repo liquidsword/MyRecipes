@@ -19,9 +19,7 @@ class RecipesController < ApplicationController
 
   def create
     @culinary_artist = current_user
-    #@recipe = Recipe.create(recipe_params)
-    @recipe = @culinary_artist.recipes.build(recipe_params)
-
+    @recipe = Recipe.create(recipe_params)
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else

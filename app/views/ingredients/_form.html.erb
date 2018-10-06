@@ -1,0 +1,13 @@
+<%= form_for @ingredient do |f| %>
+  <ul>
+    <%= f.fields_for :ingredients do |ingredient| %>
+    <li>
+      name: <%= ingredient.text_field :name %>
+    </li>
+    <% end %>
+  </ul>
+
+  <div class="actions">
+  <%= f.submit "add ingredient", new_ingredient_path, class: "btn btn-primary" %>
+ </div>
+<% end %>
