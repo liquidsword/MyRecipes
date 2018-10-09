@@ -16,7 +16,7 @@
           <a href="/logout"> Log Out </a>
           <a href="/recipes"> Index </a>
       <% else %>
-          <a href="/root_url %>">Home</a>
+        <%= link_to "Home", root_path, class: "btn btn-primary" %>
       <% end %>
 
     </nav>
