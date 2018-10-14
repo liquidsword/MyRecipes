@@ -1,0 +1,13 @@
+<li class="nav-item"><%= link_to "Recipes", recipes_path, class: "nav-link" %></li> #changed nav-link to navigation
+
+<% if @culinary_artist %> # @culinary_artist has to change to current_user but it isn't working
+
+	<li class="nav-item"><%= link_to "Ingredients", ingredients_path, class: "nav-link" %></li>
+	<li class="nav-item"><%= link_to "Log Out", logout_path, method: :delete, class: "nav-link" %></li>
+
+<% else %>
+
+	<li class="nav-item"><%= link_to "Sign In", signin_path, class: "nav-link" %></li>
+	<li class="nav-item"><%= link_to "Register", new_culinary_artist_path, class: "nav-link" %></li>
+
+<% end %>
