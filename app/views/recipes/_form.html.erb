@@ -1,7 +1,17 @@
 <%= form_for @recipe do |f| %>
-  <p>Title: <%= f.text_field :title %></p>
+  <h3>Title: <%= f.text_field :title %></h3>
   <ul>
     <%= f.fields_for :recipe_ingredients do |recipe_ingredient| %>
+    <li>
+      name: <%= recipe_ingredient.text_field :name %>
+      qty: <%= recipe_ingredient.text_field :quantity %>
+    </li>
+
+    <li>
+      name: <%= recipe_ingredient.text_field :name %>
+      qty: <%= recipe_ingredient.text_field :quantity %>
+    </li>
+
     <li>
       name: <%= recipe_ingredient.text_field :name %>
       qty: <%= recipe_ingredient.text_field :quantity %>

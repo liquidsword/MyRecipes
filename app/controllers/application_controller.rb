@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 private
 
   def current_user
-    @current_user ||= CulinaryArtist.find_by(id: session[:culinary_artist_id])
+    @current_user ||= CulinaryArtist.find(session[:culinary_artist_id]) if session[:culinary_artist_id]
   end
 
   def require_login

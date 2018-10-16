@@ -4,10 +4,6 @@ class CulinaryArtistsController < ApplicationController
     @culinary_artist = CulinaryArtist.new
   end
 
-  def index
-    @culinary_artists = CulinaryArtist.all
-  end
-
   def show
     @culinary_artist = CulinaryArtist.find(params[:id]) #added show method because of login from sessions controller
 
@@ -17,7 +13,7 @@ class CulinaryArtistsController < ApplicationController
     @culinary_artist = CulinaryArtist.new(culinary_artist_params)
       if @culinary_artist.save
         session[:culinary_artist_id] = @culinary_artist_id
-        redirect_to culinary_artist_path(@culinary_artist), notice: "Welcome to your recipes, your very own culinary journey!"
+        redirect_to culinary_artist_recipes_path(@culinary_artist), notice: "Welcome to your recipes!"
       else
         render :new
       end

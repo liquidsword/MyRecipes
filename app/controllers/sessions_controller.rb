@@ -19,14 +19,13 @@ class SessionsController < ApplicationController
     else
       @culinary_artist = CulinaryArtist.new(culinary_artist_name: session_params[:culinary_artist_name])
       flash[:error] = "Something went wrong, please try again"
-
-    render :new
+      render :new
     end
   end
 
   def destroy
-    session.clear
-    redirect_to root_path
+    session.culinary_artist_id = nil
+    redirect_to logout_path, :notice => "Goodbye :)"
   end
 
   def omnicreate
