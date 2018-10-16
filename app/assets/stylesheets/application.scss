@@ -29,9 +29,17 @@
       min-height: 565px;
       }
 
- .content, .sidebar {
-     float: none;
-     width: 100%;
+ .content {
+    float: none;
+    border: 3px solid #ccc;
+    background: #eee;
+    background-repeat: no-repeat;
+    background-position: center 0px;
+    background-size: contain;
+    z-index: 2;
+    margin: auto;
+    width: 70%;
+    height: 100px;
    }
 
    .sidebar {
@@ -44,22 +52,31 @@
 
   .center {
     background: #eee;
-    border: 3px solid #ccc;
-    float: center;
+    margin: auto;
+    border: 1px solid #ccc;
+    background-position: center 0px;
+    text-align: center;
     padding: 5px; /* 5px / 240px */
-    width: 30%; /* 240px / 800px */
-
+    width: 35%; /* 240px / 800px */
   }
 
-    a {
-      color: #8AE3E3;
+  p{
+    text-align: center;
+  }
 
-      &:visited {
-        color: #AD3434;
-      }
+  h1{
+    text-align: center;
+  }
 
-      &:hover {
-        color: #AC81D6;
-        background-color: #000;
-      }
+  a {
+    color: #8AE3E3;
+
+    &:visited {
+    color: #AD3434;
     }
+
+  &:hover {
+    color: #AC81D6;
+    background-color: #000;
+    }
+  }
