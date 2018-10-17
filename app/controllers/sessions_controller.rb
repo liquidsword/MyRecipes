@@ -1,10 +1,4 @@
 class SessionsController < ApplicationController
-
-  def new
-    @redirect_if_logged_in
-    @culinary_artist = CulinaryArtist.new
-  end
-
   def index
     @culinary_artists = CulinaryArtist.all
 
@@ -41,7 +35,7 @@ class SessionsController < ApplicationController
   end
 
   def session_params
-    params.require(:culinary_artist).permit(:password, :culinary_artist_name, :uid)
+    params.require(:culinary_artist).permit(:password, :culinary_artist_name)
 
   end
 end

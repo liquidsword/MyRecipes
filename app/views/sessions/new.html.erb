@@ -1,4 +1,5 @@
-<%= form_for @culinary_artist, :url => url_for(:controller => 'sessions', :action => 'create', :method => 'post') do |f| %>
+<%= form_for (signin_path) do |f| %>
+
   <div class="form-group">
     <%= f.label :name, "Enter your name" %><br>
     <%= f.text_field :culinary_artist_name %>
