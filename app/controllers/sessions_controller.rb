@@ -35,7 +35,6 @@ class SessionsController < ApplicationController
   end
 
   def session_params
-    params.require(:culinary_artist).permit(:password, :culinary_artist_name)
-
+    params.permit(:password, :culinary_artist_name)
   end
 end
