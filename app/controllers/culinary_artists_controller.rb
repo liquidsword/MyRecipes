@@ -4,9 +4,8 @@ class CulinaryArtistsController < ApplicationController
     @culinary_artist = CulinaryArtist.new
   end
 
-  def show
-    @culinary_artist = CulinaryArtist.find(params[:id]) #added show method because of login from sessions controller
-
+  def index
+    @culinary_artists = CulinaryArtist.all
   end
 
   def create
@@ -19,6 +18,10 @@ class CulinaryArtistsController < ApplicationController
       end
     end
 
+  def show
+    @culinary_artist = CulinaryArtist.find(params[:id]) #added show method because of login from sessions controller
+
+  end
 
 private
 

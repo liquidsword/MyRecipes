@@ -1,6 +1,6 @@
 <h1> Join the Journey </h1>
 
-<%= form_for (@culinary_artist) do |f| %>
+<%= form_for @culinary_artist do |f| %>
 
   <div class="form-group">
     <%= f.label :name, "Please create a username" %><br>
@@ -23,6 +23,6 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Register", class: "btn btn-primary" %>
+    <%= f.submit "Join", class: "btn btn-primary" %>
   </div>
  <% end %>

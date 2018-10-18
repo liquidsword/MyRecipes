@@ -1,10 +1,8 @@
-<%= form_for @culinary_artist, do |f| #url: "/culinary_artists/login" %>
-
-  <div class="field"><%= f.label :culinary_artist_name %><br>
-    <%= f.collection_select(:id, @culinary_artists, :id, :culinary_artist_name) %>
-  </div>
-
-  <div class="actions">
+<%= form_for @culinary_artist, url: signin_path do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %></br>
+    <%= f.label :password %>
+    <%= f.password_field :password %></br>
     <%= f.submit "Sign In"  %>
-  </div>
+
 <% end %>

@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
-  def index
-    @culinary_artists = CulinaryArtist.all
 
-  end
+  def new
+     @redirect_if_logged_in
+     @culinary_artist = CulinaryArtist.new
+   end
 
   def create
     @culinary_artist = CulinaryArtist.find_by(culinary_artist_name: session_params[:culinary_artist_name])
@@ -35,6 +36,6 @@ class SessionsController < ApplicationController
   end
 
   def session_params
-    params.permit(:password, :culinary_artist_name)
+    params.require(:culinary_artist).permit(:culinary_artist_name, :password)
   end
 end

@@ -1,4 +1,5 @@
 <%= form_for @recipe do |f| %>
+  
   <h3>Title: <%= f.text_field :title %></h3>
   <ul>
     <%= f.fields_for :recipe_ingredients do |recipe_ingredient| %>
@@ -27,7 +28,6 @@
 
   <div class="actions">
   <%= f.submit "Create Recipe", class: "btn btn-primary" %> |
-  <h3><%= link_to "Index", recipes_path(@recipe.culinary_artist), class: "btn btn-primary" %></h3>
 
  </div>
 <% end %>
