@@ -2,6 +2,17 @@
 
 <%= form_for @culinary_artist do |f| %>
 
+  <% if @culinary_artist.errors.any? %>
+      <div class="reason_for_error">
+        <h2>This form is invalid</h2>
+        <ul>
+          <% for message in @culinary_artist.errors.full_messages %>
+            <li><%= message %></li>
+          <% end%>
+        </ul>
+      </div>
+    <% end%>
+
   <div class="form-group">
     <%= f.label :name, "Please create a username" %><br>
     <%= f.text_field :culinary_artist_name %>

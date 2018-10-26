@@ -1,4 +1,16 @@
 <%= form_for (@recipe_ingredient) do |f| %>
+  <% if @recipe_ingredient.errors.any? %>
+    <div id="reason_for_error">
+      <h2><%= pluralize(@recipe_ingredient.errors.count, "error") %> stopped this recipe_ingredient from saving:</h2>
+
+    <ul>
+      <%= @recipe_ingredient.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
   <div class="field">
     <%=f.label :quantity %><br/>
     <%=f.text_field :quantity %>

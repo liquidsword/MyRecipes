@@ -1,33 +1,36 @@
-<%= form_for @recipe do |f| %>
-  
-  <h3>Title: <%= f.text_field :title %></h3>
-  <ul>
-    <%= f.fields_for :recipe_ingredients do |recipe_ingredient| %>
-    <li>
-      name: <%= recipe_ingredient.text_field :name %>
-      qty: <%= recipe_ingredient.text_field :quantity %>
-    </li>
-
-    <li>
-      name: <%= recipe_ingredient.text_field :name %>
-      qty: <%= recipe_ingredient.text_field :quantity %>
-    </li>
-
-    <li>
-      name: <%= recipe_ingredient.text_field :name %>
-      qty: <%= recipe_ingredient.text_field :quantity %>
-    </li>
-    <% end %>
-<br>
-    <div class="field">
-      <%= f.label :instructions %>
-      <%= f.text_area :instructions %>
+<%= nested_form_for @recipe do |f| %>
+  <% if @reciper.errors.any? %>
+    <div id="reason_for_error">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> stopped this recipe from being saved:</h2>
+      <ul>
+        <% @recipe.errors.full_messages.each do |message|
+          <li><%= message </li>
+        <% end %>
+      </ul>
     </div>
-    <%= link_to 'add_ingredient', new_ingredient_path %>
-  </ul>
+
+    <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br/>
+    <%= f.text_field :name %>
+  </div>
+
+    <%= f.fields_for :recipe_ingredients do |form| %>
+    <%= form.label :ingredient %>
+    <%= form.text_field :ingredient %>
+    <%= form.link_to_remove, "Take out this ingredient" %><br/>
+    <% end %>
+  <p><%=f.link_to_add "Add an ingredient", :recipe_ingredients %></p>
+
+<br>
+  <div class="field">
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions %>
+  </div>
 
   <div class="actions">
   <%= f.submit "Create Recipe", class: "btn btn-primary" %> |
-
  </div>
+ <%= link_to "Index", recipes_path, class: "btn btn-primary" %>
 <% end %>

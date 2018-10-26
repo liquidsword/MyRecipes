@@ -1,11 +1,13 @@
 <%= form_for (@ingredient) do |f| %>
-  <ul>
-    <%= f.fields_for :ingredients do |ingredient| %>
-    <li>
-      name: <%= ingredient.text_field :name %>
-    </li>
-    <% end %>
-  </ul>
+  <% if @ingredient.errors.any? %>
+    <div id="reason_for_error">
+      <h2><%= pluralize(@ingredient.errors.count, "error") %> is why this ingredient wasn't saved: </h2>
+      <ul>
+          <% @ingredient.errors.full_messages.each do |message| %>
+            <li><%= message %> </li>
+          <% end %>
+      </ul>
+    </div>
 
   <div class="actions">
   <%= f.submit class: "btn btn-primary" %>

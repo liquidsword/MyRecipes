@@ -18,8 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe = current_user.recipe.build(recipe_params)
+    @recipe = Recipe.new(params[:recipe_params])
     if @recipe.save
       redirect_to recipe_path(@recipe)
     else
@@ -32,6 +31,11 @@ class RecipesController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe.update(recipe_params)
     redirect_to @recipe
+  end
+
+  def destroy
+    @recipe = Recipe.find_by(params[:id])
+    @recipe.destroy
   end
 
   private
