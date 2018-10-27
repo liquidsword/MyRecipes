@@ -1,27 +1,31 @@
-<%= nested_form_for @recipe do |f| %>
-  <% if @reciper.errors.any? %>
+<%= nested_form_for (@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
     <div id="reason_for_error">
       <h2><%= pluralize(@recipe.errors.count, "error") %> stopped this recipe from being saved:</h2>
       <ul>
-        <% @recipe.errors.full_messages.each do |message|
-          <li><%= message </li>
+        <% @recipe.errors.full_messages.each do |message| %>
+          <li> <%= message %> </li>
         <% end %>
       </ul>
     </div>
-
-    <% end %>
+  <% end %>
 
   <div class="field">
-    <%= f.label :name %><br/>
-    <%= f.text_field :name %>
+    <%= f.label :title %><br/>
+    <%= f.text_field :title %>
   </div>
 
     <%= f.fields_for :recipe_ingredients do |form| %>
     <%= form.label :ingredient %>
     <%= form.text_field :ingredient %>
-    <%= form.link_to_remove, "Take out this ingredient" %><br/>
+    <%= form.label :quantity %>
+    <%= form.text_field :quantity %>
+    <%= form.link_to_remove "Take out this ingredient" %>
     <% end %>
-  <p><%=f.link_to_add "Add an ingredient", :recipe_ingredients %></p>
+<br>
+  <div>
+  <%=f.link_to_add "Add an ingredient", :recipe_ingredients %>
+  </div>
 
 <br>
   <div class="field">

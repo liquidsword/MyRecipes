@@ -1,4 +1,6 @@
 class Recipe < ApplicationRecord
+  attr_accessor :title, :culinary_artist, :ingredients_attributes, :recipe_ingredients_attributes
+
   validates :title, presence: true
   validates :culinary_artist, presence: true
 
@@ -7,7 +9,8 @@ class Recipe < ApplicationRecord
   has_many :ingredients, through: :recipe_ingredients
 
 
-  accepts_nested_attributes_for :ingredients
+  accepts_nested_attributes_for :ingredients, :allow_destroy => true
+  accepts_nested_attributes_for :recipe_ingredients, :allow_destroy => true
 
   def erase_empty_ingredients
     self.ingredients = self.ingredients.select {|i| i.name && i.name != '' || i.quantity && i.quantity !=''}

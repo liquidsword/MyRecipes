@@ -14,6 +14,8 @@ gem 'pry'
 
 gem 'jquery-rails'
 
+gem 'nested_form'
+
 gem 'bootstrap-sass'
 
 gem 'omniauth'
