@@ -24,9 +24,14 @@ class SessionsController < ApplicationController
   end
 
   def omnicreate
-    culinary_artist = CulinaryArtist.find_or_create_by_omniauth(auth)
-    session[:culinary_artist_id] = @culinary_artist_id
-    redirect_to root_path
+    if auth
+    @user = User.find_or_create_by(uid: auth['id']) do |u|
+      u.name = auth['info']['name']
+      u.email = auth['info']['email']
+    end
+    session[:user_id] = @user.id
+    render 'welcome/home'
+    end
   end
 
   private
