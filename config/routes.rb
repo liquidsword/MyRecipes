@@ -16,4 +16,5 @@ resources :recipe_ingredients
 
 resources :ingredients
 
+
 end

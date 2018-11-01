@@ -12,6 +12,9 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, :allow_destroy => true
   accepts_nested_attributes_for :recipe_ingredients, :allow_destroy => true
 
+  scope :by_title, -> {order (title: :asc)}
+  scope :by_recent_update, -> {order (updated_at: :desc)}
+
   def erase_empty_ingredients
     self.ingredients = self.ingredients.select {|i| i.name && i.name != '' || i.quantity && i.quantity !=''}
   end
