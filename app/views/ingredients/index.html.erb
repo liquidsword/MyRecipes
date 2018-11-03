@@ -1,11 +1,34 @@
 <h2>Ingredients List </h2>
 
-<table>
+<style>
+table {
+  width:100%
+}
+table, th, td {
+  border: 2px solid black;
+}
+th, td {
+  padding: 5px;
+}
+table#t02 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t02 tr:nth-child(odd) {
+   background-color: #fff;
+}
+table#t02 th {
+    background-color: darkgreen;
+    color: white;
+}
+
+</style>
+
+<table id="t02">
   <tr>
     <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Show Link</th>
+    <th>Edit Link</th>
+    <th>Delete</th>
   </tr>
 
   <% @ingredients.each do |ingredient| %>

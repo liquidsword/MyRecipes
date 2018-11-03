@@ -9,6 +9,5 @@ class RecipeIngredient < ApplicationRecord
 
   def ingredient=(ingredient)
     self.ingredient_id = Ingredient.find_by(ingredient).id
-
   end
 end

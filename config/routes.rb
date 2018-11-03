@@ -7,7 +7,7 @@ get '/auth/facebook/callback' => 'sessions#omnicreate'
 get "/logout", to: "sessions#destroy"
 
 resources :culinary_artists do
-  resources :recipes, only: [:index, :show]
+  resources :recipes
 end
 
 resources :recipes
@@ -15,6 +15,5 @@ resources :recipes
 resources :recipe_ingredients
 
 resources :ingredients
-
 
 end

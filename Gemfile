@@ -19,7 +19,7 @@ gem 'nested_form'
 gem 'bootstrap-sass'
 
 gem 'omniauth'
-gem 'omniauth-facebook'
+gem 'omniauth-github', '1.1.1'
 gem 'dotenv-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

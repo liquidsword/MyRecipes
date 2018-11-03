@@ -3,6 +3,7 @@ class RecipesController < ApplicationController
   def index
     if params[:culinary_artist_id]
       @recipes = CulinaryArtist.find(params[:culinary_artist_id]).recipes
+      @culinary_artist_id = params[:culinary_artist_id]
     else
       @recipes = Recipe.all
     end
@@ -18,8 +19,10 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(params[:recipe_params])
-    if @recipe.save
+    @recipe = Recipe.create(recipe_params)
+    @recipe.culinary_artist_id = current_user
+    if @recipe.valid?
+       @recipe.save
       redirect_to recipe_path(@recipe)
     else
       3.times { @recipe.recipe_ingredients.build } #added 10-2-18

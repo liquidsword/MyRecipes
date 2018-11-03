@@ -1,4 +1,9 @@
 <p>
+  <strong>Title: </strong>
+  <%= @recipe.title %>
+</p>
+
+<p>
   <strong>Ingredients:</strong>
   <ul>
     <% @recipe.ingredients.each do |ingredient| %>
@@ -11,6 +16,9 @@
   <strong>Instructions:</strong>
   <%= @recipe.instructions %>
 </p>
-
-<%= link_to "Edit", edit_recipe_path(@recipe) %>
-<%= link_to "Back", recipes_path %>
+<% if @culinary_artist_id %>
+  <%= link_to "Edit", edit_culinary_artist_recipe_path(@culinary_artist_id) %>
+  <%= link_to "Back", recipes_path %>
+<% else %>
+  <% "Please sign in" %>
+<%end%>

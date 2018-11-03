@@ -1,12 +1,35 @@
 <h2> Recipe Ingredients Table </h2>
 
-<table>
+<style>
+table {
+  width:100%
+}
+table, th, td {
+  border: 2px solid black;
+}
+th, td {
+  padding: 5px;
+}
+table#t03 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t03 tr:nth-child(odd) {
+   background-color: #fff;
+}
+table#t03 th {
+    background-color: darkgreen;
+    color: white;
+}
+
+</style>
+
+<table id="t03">
   <tr>
     <th>Quantity</th>
     <th>Measurement Unit</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Show Link</th>
+    <th>Edit Link</th>
+    <th>Delete</th>
   </tr>
 
  <% @recipe_ingredients.each do |recipe_ingredient| %>

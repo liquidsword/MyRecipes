@@ -1,18 +1,41 @@
 <h2>Welcome to your recipe page! Keep on cooking and creating! </h2>
+</br>
 
-<table>
+<style>
+table {
+  width:100%
+}
+table, th, td {
+  border: 2px solid black;
+}
+th, td {
+  padding: 5px;
+}
+table#t01 tr:nth-child(even) {
+    background-color: #eee;
+}
+table#t01 tr:nth-child(odd) {
+   background-color: #fff;
+}
+table#t01 th {
+    background-color: darkgreen;
+    color: white;
+}
+
+</style>
+
+<table id="t01">
   <tr>
-    <th>Name:</th>
-    <th>Instructions:</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Title</th>
+    <th>Instructions</th>
+    <th>Show Links</th>
+    <th>Edit Links</th>
+    <th>Delete Links</th>
   </tr>
-
 
 <% @recipes.each do |recipe|  %>
   <tr>
-    <td><%= recipe.name %></td>
+    <td><%= recipe.title %></td>
     <td><%= recipe.instructions %></td>
     <td><%= link_to "Show", recipe %></td>
     <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>
@@ -21,6 +44,10 @@
 
 <% end %>
 </table>
-<br>
 
-  <%= link_to "New Recipe", new_recipe_path %>
+<br>
+<% if current_user %>
+  <%= link_to "New Recipe", new_culinary_artist_recipe_path(@culinary_artist_id) %>
+<% else %>
+  <%= link_to "Something new", new_recipe_path %>
+<% end %>
