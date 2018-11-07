@@ -10,7 +10,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def new
