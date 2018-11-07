@@ -2,7 +2,7 @@
 <% if session[:culinary_artist_id] %>
   <h1><%= @culinary_artist_name.name %></h1>
   <h2>Email: <%= @culinary_artist.email %></h2>
-  <h2>Facebook UID: <%= @culinary_artist.culinary_artist_id %></h2>
+  <h2>Github UID: <%= @culinary_artist.culinary_artist_id %></h2>
 <% else %>
-  <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+  <%= link_to('Log in with Github!', '/auth/github') %>
 <% end %>

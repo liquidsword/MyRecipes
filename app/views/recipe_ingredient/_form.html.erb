@@ -1,4 +1,4 @@
-<%= form_for (@recipe_ingredient) do |f| %>
+<%= nested_form_for (@recipe_ingredient) do |f|%>
   <% if @recipe_ingredient.errors.any? %>
     <div id="reason_for_error">
       <h2><%= pluralize(@recipe_ingredient.errors.count, "error") %> stopped this recipe_ingredient from saving:</h2>
