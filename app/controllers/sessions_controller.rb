@@ -26,8 +26,8 @@ class SessionsController < ApplicationController
   def omnicreate
     if auth_hash = request.env["omniauth.auth"]
       @culinary_artist = CulinaryArtist.find_or_create_by_omniauth(auth_hash)
-      session[:culinary_artist] = @culinary_artist.id
-      redirect_to root_path
+      session[:culinary_artist_id] = @culinary_artist.id
+      redirect_to @culinary_artist
     else
       render 'sessions/new'
     end

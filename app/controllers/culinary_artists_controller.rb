@@ -19,6 +19,7 @@ class CulinaryArtistsController < ApplicationController
     end
 
   def show
+    binding.pry
     @culinary_artist = CulinaryArtist.find(params[:id]) #added show method because of login from sessions controller
 
   end
