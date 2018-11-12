@@ -29,6 +29,6 @@ private
   end
 
   def culinary_artist_params
-    params.require(:culinary_artist).permit(:culinary_artist_name, :email, :password, :password_confirmation)
+    params.require(:culinary_artist).permit(:email, :password, :password_confirmation)
   end
 end

@@ -48,6 +48,7 @@ table#t01 th {
 <br>
 <% if current_user %>
   <%= link_to "New Recipe", new_culinary_artist_recipe_path(@culinary_artist_id) %>
+  <%= link_to "Log Out", logout_path, method: :destroy, class: "nav-link" %>
 <% else %>
   <%= link_to "Something new", new_recipe_path %>
 <% end %>

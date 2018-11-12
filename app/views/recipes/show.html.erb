@@ -19,7 +19,6 @@
 <% if @culinary_artist_id %>
   <%= link_to "Edit", edit_culinary_artist_recipe_path(@culinary_artist_id) %>
   <%= link_to "Back", recipes_path %>
-  <%= link_to "Log Out", logout_path, method: :destroy, class: "nav-link" %>
 <% else %>
   <% "Please sign in" %>
 <%end%>
