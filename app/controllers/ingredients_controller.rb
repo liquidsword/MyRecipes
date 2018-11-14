@@ -7,7 +7,7 @@ class IngredientsController < ApplicationController
       @ingredient = @recipe_ingredient.build_ingredient
     else
       @ingredient = Ingredient.new
-  end
+    end
   end
 
   def index

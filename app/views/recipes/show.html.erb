@@ -4,20 +4,11 @@
 </p>
 
 <p>
-  <strong>Ingredients:</strong>
-  <ul>
-    <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= link_to ingredient.name, ingredient %></li>
-    <% end %>
-  </ul>
-</p>
-
-<p>
   <strong>Instructions:</strong>
   <%= @recipe.instructions %>
 </p>
-<% if @culinary_artist_id %>
-  <%= link_to "Edit", edit_culinary_artist_recipe_path(@culinary_artist_id) %>
+<% if current_user %>
+  <%= link_to "Edit", edit_recipe_path %>
   <%= link_to "Back", recipes_path %>
 <% else %>
   <% "Please sign in" %>
