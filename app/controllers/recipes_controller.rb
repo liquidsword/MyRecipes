@@ -19,6 +19,7 @@ class RecipesController < ApplicationController
   end
 
   def create
+    binding.pry
     @recipe = Recipe.create(recipe_params)
     @recipe.culinary_artist_id = current_user
     if @recipe.valid?
