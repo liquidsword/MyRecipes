@@ -7,7 +7,7 @@ get '/auth/:provider/callback' => 'sessions#omnicreate'
 get "/logout", to: "sessions#destroy"
 
 resources :culinary_artists, only: [:show, :index] do
-  resources :recipes, only: [:show, :index, :new]
+  resources :recipes, only: [:show, :index, :new, :edit]
 end
 
 resources :recipes

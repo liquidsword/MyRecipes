@@ -14,8 +14,12 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new(culinary_artist_id: params[:culinary_artist_id])
-    3.times { @recipe.recipe_ingredients.build} #this seems to work
+    if params[:culinary_artist] && !CulinaryArtist.exists? (params[:culinary_artist_id])
+      redirect_to culinary_artists_path, alert: "CulinaryArtist not found!"
+    else
+      @recipe = Recipe.new(culinary_artist_id: params[:culinary_artist_id])
+      3.times { @recipe.recipe_ingredients.build} #this seems to work
+    end
   end
 
   def create
@@ -31,8 +35,18 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    if params[:culinary_artist_id]
+      culinary_artist = CulinaryArtist.find_by(id: params[:culinary_artist_id])
+      if culinary_artist.nil?
+        redirect_to culinary_artists_path, alert: "CulinaryArtist not found."
+      else
+        @recipe = culinary_artist.recipes.find_by(id: params[:id])
+        redirect_to culinary_artist_recipes_path(culinary_artist), alert: "Couldn't find that recipe!" if @recipe.nil?
+      end
+    else
     @recipe = Recipe.find(params[:id])
   end
+end
 
   def update
     @recipe = Recipe.find(params[:id])
@@ -47,7 +61,7 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-        params.require(:recipe).permit(:culinary_artist, :title, :instructions, ingredients_attributes: [:id, :name, :quantity])
+        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, ingredients_attributes: [:id, :name, :quantity])
 
     end
 end
