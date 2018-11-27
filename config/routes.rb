@@ -6,8 +6,8 @@ post "/signin", to: "sessions#create"
 get '/auth/:provider/callback' => 'sessions#omnicreate'
 get "/logout", to: "sessions#destroy"
 
-resources :culinary_artists do
-  resources :recipes
+resources :culinary_artists, only: [:show, :index] do
+  resources :recipes, only: [:show, :index, :new]
 end
 
 resources :recipes

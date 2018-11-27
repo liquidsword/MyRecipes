@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = Recipe.new(culinary_artist_id: params[:culinary_artist_id])
     3.times { @recipe.recipe_ingredients.build} #this seems to work
   end
 
