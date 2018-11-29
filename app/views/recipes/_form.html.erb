@@ -18,7 +18,7 @@
     <%= f.text_field :title %>
   </div>
 
-    <%= f.fields_for :recipe_ingredients do |f| %>
+    <%= f.fields_for :recipe_ingredients, recipe.recipe_ingredients.build do |f| %>
     <%= f.label :ingredient %>
     <%= f.text_field :ingredient %>
     <%= f.label :quantity %>
