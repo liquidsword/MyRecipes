@@ -14,7 +14,7 @@ class RecipesController < ApplicationController
   end
 
   def new
-    if params[:culinary_artist] && !CulinaryArtist.exists? (params[:culinary_artist_id])
+    if params[:culinary_artist] && !CulinaryArtist.exists?(params[:culinary_artist_id])
       redirect_to culinary_artists_path, alert: "CulinaryArtist not found!"
     else
       @recipe = Recipe.new(culinary_artist_id: params[:culinary_artist_id])
@@ -45,8 +45,8 @@ class RecipesController < ApplicationController
       end
     else
     @recipe = Recipe.find(params[:id])
+    end
   end
-end
 
   def update
     @recipe = Recipe.find(params[:id])
@@ -61,7 +61,7 @@ end
 
   private
     def recipe_params
-        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, recipe_ingredients_attributes: [:name])
+        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, ingredients_attributes: [:name])
 
     end
 end

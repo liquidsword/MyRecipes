@@ -1,5 +1,5 @@
 <%= nested_form_for (@recipe) do |f| %>
-  <%= culinary_artist_id_field(recipe) %>
+  <%= culinary_artist_id_field(@recipe) %>
   <br>
   <% if @recipe.errors.any? %>
     <div id="reason_for_error">
@@ -18,9 +18,9 @@
     <%= f.text_field :title %>
   </div>
 
-    <%= f.fields_for :recipe_ingredients, recipe.recipe_ingredients.build do |f| %>
+    <%= f.fields_for :recipe_ingredients, @recipe.recipe_ingredients.build do |f| %>
     <%= f.label :ingredient %>
-    <%= f.text_field :name %>
+    <%= f.text_field :ingredient %>
     <%= f.label :quantity %>
     <%= f.text_field :quantity %>
     <%= f.link_to_remove "Take out this ingredient" %>
