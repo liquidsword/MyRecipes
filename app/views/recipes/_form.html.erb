@@ -1,4 +1,6 @@
 <%= nested_form_for (@recipe) do |f| %>
+  <%= culinary_artist_id_field(recipe) %>
+  <br>
   <% if @recipe.errors.any? %>
     <div id="reason_for_error">
       <h2><%= pluralize(@recipe.errors.count, "error") %> stopped this recipe from being saved:</h2>
@@ -16,12 +18,12 @@
     <%= f.text_field :title %>
   </div>
 
-    <%= f.fields_for :recipe_ingredients do |form| %>
-    <%= form.label :ingredient %>
-    <%= form.text_field :ingredient %>
-    <%= form.label :quantity %>
-    <%= form.text_field :quantity %>
-    <%= form.link_to_remove "Take out this ingredient" %>
+    <%= f.fields_for :recipe_ingredients do |f| %>
+    <%= f.label :ingredient %>
+    <%= f.text_field :ingredient %>
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+    <%= f.link_to_remove "Take out this ingredient" %>
     <% end %>
 <br>
   <div>
