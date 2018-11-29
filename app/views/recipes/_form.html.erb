@@ -20,7 +20,7 @@
 
     <%= f.fields_for :recipe_ingredients, recipe.recipe_ingredients.build do |f| %>
     <%= f.label :ingredient %>
-    <%= f.text_field :ingredient %>
+    <%= f.text_field :name %>
     <%= f.label :quantity %>
     <%= f.text_field :quantity %>
     <%= f.link_to_remove "Take out this ingredient" %>

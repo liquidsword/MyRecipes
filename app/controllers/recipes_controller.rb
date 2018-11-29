@@ -61,7 +61,7 @@ end
 
   private
     def recipe_params
-        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, ingredients_attributes: [:id, :name, :quantity])
+        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, recipe_ingredients_attributes: [:id, :name])
 
     end
 end
