@@ -16,6 +16,4 @@ resources :recipe_ingredients
 
 resources :ingredients
 
-resources :sessions
-
 end

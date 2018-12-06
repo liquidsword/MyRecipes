@@ -1,6 +1,14 @@
 
 <h1><%= @recipe.title %></h1>
-<p>by <%= link_to @recipe.culinary_artist.name, culinary_artist_path(@recipe.culinary_artist) if @recipe.culinary_artist %>
+
+<p>
+  <strong>Ingredients:</strong>
+
+    <% @recipe.ingredients.each do |ingredient| %>
+    <li><%= link_to ingredient.name, ingredient %></li>
+    <% end %>
+
+</p>
 
 <p>
   <strong>Instructions:</strong>

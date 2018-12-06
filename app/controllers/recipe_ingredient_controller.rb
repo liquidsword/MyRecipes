@@ -3,6 +3,7 @@ class RecipeIngredientController < ApplicationController
 
   def new
     @recipe_ingredient = Recipe_ingredient.new
+    @ingredient = @recipe_ingredient.build_ingredient
   end
 
   def create
@@ -22,12 +23,16 @@ class RecipeIngredientController < ApplicationController
   end
 
   def show
-    @Recipe_ingredient = Recipe_ingredient.find_by(params[:id])
+    @recipe_ingredient = Recipe_ingredient.find_by(params[:id])
   end
 
   def edit
     @recipe_ingredient = Recipe_ingredient.find_by(params[:id])
-  end  
+  end
+
+  def update
+    @recipe_ingredient = Recipe_ingredient.find_by(params[:id])
+  end
 
   def destroy
     @recipe_ingredient = Recipe_ingredient.find_by(params[:id])

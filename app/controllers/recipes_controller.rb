@@ -10,7 +10,8 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id]) #have to make sure this code stays or it can't find title method
+    @recipe_ingredients = Recipe.find(params[:id]).recipe_ingredients
   end
 
   def new
@@ -24,6 +25,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.create(recipe_params)
+    @recipe.recipe_ingredients.build  #added 12/3/18
     @recipe.culinary_artist_id = current_user
     if @recipe.valid?
        @recipe.save
@@ -61,7 +63,7 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, ingredients_attributes: [:name])
+        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, recipe_ingredients_attributes: [:quantity, :name])
 
     end
 end

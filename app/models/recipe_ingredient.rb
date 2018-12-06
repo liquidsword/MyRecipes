@@ -1,4 +1,5 @@
 class RecipeIngredient < ApplicationRecord
+
   belongs_to :recipe, optional: true
   belongs_to :ingredient, optional: true
 
@@ -8,6 +9,6 @@ class RecipeIngredient < ApplicationRecord
   accepts_nested_attributes_for :recipe, allow_destroy: true
 
   def ingredient=(ingredient)
-    self.ingredient_id = Ingredient.find_by(ingredient).id
+    self.ingredient_id = Ingredient.find_or_create_by(ingredient).id
   end
 end
