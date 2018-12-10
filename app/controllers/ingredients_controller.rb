@@ -4,7 +4,9 @@ class IngredientsController < ApplicationController
     if params[:recipe_id]
       @recipe = Recipe.find_by(params[:recipe_id])
       @recipe_ingredient = @recipe.recipe_ingredients.build
+      @recipe_ingredient.save
       @ingredient = @recipe_ingredient.build_ingredient
+      @ingredient.save
     else
       @ingredient = Ingredient.new
     end

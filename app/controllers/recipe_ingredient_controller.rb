@@ -1,6 +1,5 @@
 class RecipeIngredientController < ApplicationController
 
-
   def new
     @recipe_ingredient = Recipe_ingredient.new
     @ingredient = @recipe_ingredient.build_ingredient

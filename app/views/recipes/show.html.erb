@@ -4,12 +4,13 @@
 <p>
   <strong>Ingredients:</strong>
 
-    <% @recipe.ingredients.each do |ingredient| %>
-    <li><%= link_to ingredient.name, ingredient %></li>
+    <%= @recipe.recipe_ingredients.each do |recing| %>
+
+      <%= recing.quantity %>
+      <%= recing.ingredient_name %>
     <% end %>
 
 </p>
-
 <p>
   <strong>Instructions:</strong>
   <%= @recipe.instructions %>
