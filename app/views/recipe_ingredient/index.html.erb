@@ -26,7 +26,6 @@ table#t03 th {
 <table id="t03">
   <tr>
     <th>Quantity</th>
-    <th>Measurement Unit</th>
     <th>Show Link</th>
     <th>Edit Link</th>
     <th>Delete</th>
@@ -35,7 +34,6 @@ table#t03 th {
  <% @recipe_ingredients.each do |recipe_ingredient| %>
   <tr>
     <td><%= recipe_ingredient.quantity %></td>
-    <td><%= recipe_ingredient.measurement_unit %></td>
     <td><%= link_to "Show", recipe_ingredient_path %></td>
     <td><%= link_to "Edit", edit_recipe_ingredient_path %></td>
     <td><%= link_to "Delete", recipe_ingredient, method: :delete, data: {confirm: "Are you absolutely sure?"} %></td>

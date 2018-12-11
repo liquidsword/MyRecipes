@@ -19,19 +19,19 @@ class RecipesController < ApplicationController
       redirect_to culinary_artists_path, alert: "CulinaryArtist not found!"
     else
       @recipe = Recipe.new(culinary_artist_id: params[:culinary_artist_id])
-      3.times { @recipe.recipe_ingredients.build} #this seems to work
+      #3.times { @recipe.recipe_ingredients.build} #this seems to work
     end
   end
 
   def create
     @recipe = Recipe.create(recipe_params)
-    @recipe.recipe_ingredients.build  #added 12/3/18
+    #@recipe.recipe_ingredients.build  #added 12/3/18
     @recipe.culinary_artist_id = current_user
     if @recipe.valid?
-       @recipe.save
+       #@recipe.save
       redirect_to recipe_path(@recipe)
     else
-      3.times { @recipe.recipe_ingredients.build } #added 10-2-18
+      #3.times { @recipe.recipe_ingredients.build } #added 10-2-18
       render 'new'
     end
   end
@@ -63,7 +63,7 @@ class RecipesController < ApplicationController
 
   private
     def recipe_params
-        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, recipe_ingredients_attributes: [:quantity, :name])
+        params.require(:recipe).permit(:culinary_artist_id, :title, :instructions, recipe_ingredients_attributes: [:id, :quantity, :ingredient_name, :_destroy])
 
     end
 end

@@ -18,12 +18,12 @@
     <%= f.text_field :title %>
   </div>
 
-    <%= f.fields_for :recipe_ingredients do |f| %>
-    <%= f.label :ingredient_name %>
-    <%= f.text_field :ingredient_name %>
-    <%= f.label :quantity %>
-    <%= f.text_field :quantity %>
-    <%= f.link_to_remove "Take out this ingredient" %>
+    <%= f.fields_for :recipe_ingredients do |x| %>
+    <%= x.label :ingredient_name %>
+    <%= x.text_field :ingredient_name %>
+    <%= x.label :quantity %>
+    <%= x.text_field :quantity %>
+    <%= x.link_to_remove "Take out this ingredient" %>
     <% end %>
 <br>
   <div>
@@ -37,7 +37,7 @@
   </div>
 
   <div class="actions">
-  <%= f.submit "Create Recipe", class: "btn btn-primary" %> |
+  <%= f.submit %> |
  </div>
  <%= link_to "Index", recipes_path, class: "btn btn-primary" %>
 

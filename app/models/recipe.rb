@@ -11,12 +11,12 @@ class Recipe < ApplicationRecord
   accepts_nested_attributes_for :ingredients, :allow_destroy => true
   accepts_nested_attributes_for :recipe_ingredients, :allow_destroy => true
 
-    def recipe_ingredients_attributes=(recipe_ingredients_attributes)  #has_many_through lesson lab
-      recipe_ingredients_attributes.values.each do |recipe_ingredients_attribute|
-        recipe_ingredient = RecipeIngredient.find_or_create_by(recipe_ingredients_attribute)
-        self.recipe_ingredients << recipe_ingredient
-      end
-    end
+    #def recipe_ingredients_attributes=(recipe_ingredients_attributes)  #has_many_through lesson lab
+      #recipe_ingredients_attributes.values.each do |recipe_ingredients_attribute|
+        #recipe_ingredient = RecipeIngredient.find_or_create_by(recipe_ingredients_attribute)
+        #self.recipe_ingredients << recipe_ingredient
+      #end
+    #end
 
     def erase_empty_ingredients
       self.ingredients = self.ingredients.select {|i| i.name && i.name != '' || i.quantity && i.quantity !=''}

@@ -13,7 +13,7 @@ class RecipeIngredient < ApplicationRecord
   end
 
   def ingredient_name
-    ingredient.name
+    ingredient.name if ingredient
   end
 
 end

@@ -1,14 +1,15 @@
 class IngredientsController < ApplicationController
 
   def new
-    if params[:recipe_id]
-      @recipe = Recipe.find_by(params[:recipe_id])
-      @recipe_ingredient = @recipe.recipe_ingredients.build
-      @recipe_ingredient.save
-      @ingredient = @recipe_ingredient.build_ingredient
-      @ingredient.save
-    else
+    if params[:recipe_ingredient_id]
+      #@recipe = Recipe.find_by(params[:recipe_id])
+      #@recipe_ingredient = @recipe.recipe_ingredients.build
+      #@recipe_ingredient.save
+      #@ingredient = @recipe_ingredient.build_ingredient
+      #@ingredient.save
+    #else
       @ingredient = Ingredient.new
+      @ingredient.save
     end
   end
 
@@ -22,6 +23,11 @@ class IngredientsController < ApplicationController
 
   def create
     @ingredient = Ingredient.new(params[:id])
+    if @ingredient.save
+      redirect_to @ingredient
+    else
+      render :new
+    end
   end
 
   def edit
