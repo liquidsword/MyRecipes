@@ -19,7 +19,7 @@ class Recipe < ApplicationRecord
     #end
 
     def erase_empty_ingredients
-      self.ingredients = self.ingredients.select {|i| i.name && i.name != '' || i.quantity && i.quantity !=''}
+      self.ingredients = self.ingredients.select {|i| i.ingredient_name && i.ingredient_name != '' || i.quantity && i.quantity !=''}
     end
 
     def self.updated
