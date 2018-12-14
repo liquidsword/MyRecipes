@@ -34,7 +34,7 @@ table#t02 th {
   <% @ingredients.each do |ingredient| %>
   <tr>
     <td><%= ingredient.name %></td>
-    <td><%= link_to 'Show', ingredient_path %></td>
+    <td><%= link_to 'Show', ingredient_path(ingredient) %></td>
     <td><%= link_to 'Edit', edit_ingredient_path(ingredient) %></td>
     <td><%= link_to 'Delete', ingredient, method: :delete, data: { confirm: 'Are you sure you would like to delete this??' } %></td>
   </tr>
