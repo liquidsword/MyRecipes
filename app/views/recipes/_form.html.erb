@@ -1,5 +1,4 @@
 <%= nested_form_for (@recipe) do |f| %>
-  <%= culinary_artist_id_field(@recipe) %>
   <br>
   <% if @recipe.errors.any? %>
     <div id="reason_for_error">
