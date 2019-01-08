@@ -9,13 +9,18 @@ class RecipesController < ApplicationController
     end
   end
 
+  def alpha
+    @recipes = Recipe.all
+    @recipes.order(title: 'desc') #tell which view to render, move to model, call the scope method here
+    render 'index'
+  end
+
   def show
     @recipe = Recipe.find(params[:id]) #have to make sure this code stays or it can't find title method
-    @recipe_ingredients = Recipe.find(params[:id]).recipe_ingredients
   end
 
   def new
-    if params[:culinary_artist] && !CulinaryArtist.exists?(params[:culinary_artist_id])
+    if params[:culinary_artist_id] && !CulinaryArtist.exists?(params[:culinary_artist_id])
       redirect_to culinary_artists_path, alert: "CulinaryArtist not found!"
     else
       @recipe = Recipe.new(culinary_artist_id: params[:culinary_artist_id])

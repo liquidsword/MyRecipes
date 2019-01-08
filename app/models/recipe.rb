@@ -25,4 +25,16 @@ class Recipe < ApplicationRecord
     def self.updated
       order(updated_at: 'desc')
     end
+
+    def alpha
+      @recipes = Recipe.all
+      @recipes.order(title: 'desc') #tell which view to render, move to model, call the scope method here
+      render 'index'
+    end
+
+    #objects_array.sort! { |a, b|  a.attribute <=> b.attribute }    #ascending order
+    #objects_array.sort_by{ |obj| obj.attribute }      #ascending order
+
+    #objects_array.sort! { |a, b|  b.attribute <=> a.attribute }   #descending Order
+    #objects_array.sort_by{ |obj| obj.attribute }.reverse  #descending Order
 end

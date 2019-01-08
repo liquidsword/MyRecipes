@@ -49,7 +49,8 @@ table#t01 th {
 <% if current_user %>
   <%= link_to "Index", recipes_path %> |
   <%= link_to "Log Out", logout_path %> |
-  <%= link_to "Something new", new_recipe_path %>
+  <%= link_to "Something new", new_recipe_path %> |
+  <%= link_to "Order", alpha_recipes_path %>
 <% else %>
-  <%= link_to "Homepage", root_path %>  
+  <%= link_to "Homepage", root_path %>
 <% end %>
