@@ -35,7 +35,7 @@ table#t01 th {
 
 <% @recipes.each do |recipe|  %>
   <tr>
-    <td><%= recipe.title %></td>
+    <td><%= recipe.title.downcase %></td>
     <td><%= recipe.instructions %></td>
     <td><%= link_to "Show", recipe %></td>
     <td><%= link_to "Edit", edit_recipe_path(recipe) %></td>

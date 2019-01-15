@@ -20,8 +20,7 @@ class Recipe < ApplicationRecord
     end
 
     def self.alphabetize
-      order(title: 'desc')
-
+      order(title: 'asc')
     end
 
 end

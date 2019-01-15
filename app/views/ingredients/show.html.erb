@@ -3,7 +3,7 @@
     <%=@ingredient.name %>
 
     <% @ingredient.recipes.each do |list| %>
-        <li> <%= link_to list.title, recipe_path(list) %></li>        
+        <li> <%= link_to list.title, recipe_path(list) %></li>
     <% end %>
 </p>
 
