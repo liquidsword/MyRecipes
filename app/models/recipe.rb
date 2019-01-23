@@ -20,7 +20,8 @@ class Recipe < ApplicationRecord
     end
 
     def self.alphabetize
-      order(title: 'asc')
+      order(title: :asc).to_a #***works***
+      #More elegant objects.sort_by(&:attribute), you can add on a .reverse
     end
 
 end
