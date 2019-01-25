@@ -29,9 +29,10 @@ class RecipesController < ApplicationController
   end
 
   def create
+    
     @recipe = Recipe.create(recipe_params)
     #@recipe.recipe_ingredients.build  #added 12/3/18
-    @recipe.culinary_artist_id = current_user
+    @recipe.culinary_artist_id = current_user.id
     if @recipe.valid?
        #@recipe.save
       redirect_to recipe_path(@recipe)

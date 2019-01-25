@@ -7,3 +7,10 @@
     <div><%= recipe.title %></div>
 
 <% end %>
+
+<p>Ingredients: </p>
+
+  <% @culinary_artist.ingredients.each do |x| %>
+    <div><%= x.name %></div>
+
+<% end %>
