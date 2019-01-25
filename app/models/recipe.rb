@@ -6,7 +6,7 @@ class Recipe < ApplicationRecord
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
 
-  #scope :alpha, -> { order (title: 'desc') }
+  #scope :alphabetize, -> {order (title: :asc)}
 
   accepts_nested_attributes_for :ingredients, :allow_destroy => true
   accepts_nested_attributes_for :recipe_ingredients, :allow_destroy => true
@@ -21,7 +21,7 @@ class Recipe < ApplicationRecord
 
     def self.alphabetize
       order(title: :asc).to_a #***works***
-      #More elegant objects.sort_by(&:attribute), you can add on a .reverse
+      #can also work => objects.sort_by(&:attribute), you can add on a .reverse
     end
 
 end
