@@ -29,7 +29,6 @@ class RecipesController < ApplicationController
   end
 
   def create
-    
     @recipe = Recipe.create(recipe_params)
     #@recipe.recipe_ingredients.build  #added 12/3/18
     @recipe.culinary_artist_id = current_user.id
@@ -63,7 +62,7 @@ class RecipesController < ApplicationController
   end
 
   def destroy
-    @recipe = Recipe.find_by(params[:id])
+    @recipe = Recipe.find(params[:id])
     @recipe.destroy
   end
 
